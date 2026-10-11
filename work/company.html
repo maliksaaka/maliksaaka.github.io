@@ -206,7 +206,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset
     <div class="row"><span class="k">Years</span><span class="v"><span data-f="years"></span></span></div>
     <div class="row"><span class="k">Owned</span><span class="v"><span data-f="output"></span></span></div>
     <div class="row" id="fullres" hidden><span class="k">Achieved</span><span class="v"><span data-f="fullresult"></span></span></div>
-    <div class="row"><span class="k">Back</span><span class="v"><a class="u" href="../work.html#work">All work</a><span class="ar">&larr;&#xFE0E;</span></span></div>
+    <div class="row"><span class="k">Back</span><span class="v"><a class="u" href="../work.html#special-projects" data-back>All work</a><span class="ar">&larr;&#xFE0E;</span></span></div>
   </div>
 </section>
 <section class="dossier one" id="intro-min">
@@ -216,7 +216,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset
     <div class="row" id="prevrow" hidden><span class="k">Previously</span><span class="v"><span data-f="prev"></span></span></div>
     <div class="row"><span class="k">Years</span><span class="v"><span data-f="years"></span></span></div>
     <div class="row" id="resrow" hidden><span class="k">Achieved</span><span class="v"><span data-f="result"></span></span></div>
-    <div class="row"><span class="k">Back</span><span class="v"><a class="u" href="../work.html#work">All work</a><span class="ar">&larr;&#xFE0E;</span></span></div>
+    <div class="row"><span class="k">Back</span><span class="v"><a class="u" href="../work.html#special-projects" data-back>All work</a><span class="ar">&larr;&#xFE0E;</span></span></div>
   </div>
 </section>
 
@@ -253,7 +253,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset
 <nav class="bnav" aria-label="Site">
   <a href="../index.html" class="mark">Malik Saaka</a>
   <ul>
-    <li><a href="../work.html#work">Work</a></li>
+    <li><a href="../work.html#special-projects" data-back>Work</a></li>
     <li><a href="../work.html#contact">Contact</a></li>
   </ul>
 </nav>
@@ -276,6 +276,8 @@ const G = CO.filter(c=>(c.grp||'Tenure')===(c0.grp||'Tenure'));
 let i = G.indexOf(c0); const c = c0;
 document.getElementById('grp').textContent = c.grp||'Tenure';
 if((c.grp||'Tenure')!=='Tenure'){const lf=document.getElementById('li-foot'); if(lf) lf.remove();}
+// back links and the nav's Work return to this project's own section on the Work page
+document.querySelectorAll('a[data-back]').forEach(a=>a.href=`../work.html#${(c.grp||'Tenure')==='Tenure'?'tenure':'special-projects'}`);
 document.title = `${c.name} — Malik Saaka (Mockup)`;
 document.querySelectorAll('[data-f]').forEach(el=>{ const f=el.dataset.f; el.textContent = f==='no' ? String(i+1).padStart(2,'0') : (c[f]||''); });
 if(c.prev) document.getElementById('prevrow').hidden=false;
