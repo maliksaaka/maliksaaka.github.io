@@ -15,7 +15,7 @@
   var N = 28, NAME = 'ms-hero';
   var SPECIAL = { 'mugler': 1, 'alibi-lounge': 1, 'sxylk': 1 };
   var SAME = { 'sxylk': 1 };                         // tile and hero are the same photo: true image morph
-  var DIMS = { 'mugler': [1280, 600], 'sxylk': [1000, 2168] };   // hero sizes, so the frame is right before the image loads
+  var DIMS = { 'mugler': [1280, 600], 'sxylk': [1280, 600] };   // hero sizes, so the frame is right before the image loads
 
   var css = '' +
     '@view-transition{navigation:auto}' +
@@ -37,14 +37,16 @@
     'html.ms-morph::view-transition-old(' + NAME + '),html.ms-morph::view-transition-new(' + NAME + '){height:100%;width:100%;object-fit:cover;animation-duration:.75s}' +
     'html.ms-morph::view-transition-old(root){animation:ms-out .3s ease both}' +
     'html.ms-morph::view-transition-new(root){animation:ms-in .45s ease .25s both}' +
-    /* same photo, to the detail page: at the start the hero image, cropped like the tile, is
-       pixel-identical to the tile, so it takes over at once and simply uncrops as the frame grows */
+    /* same photo (SXYLK): the hero is the tile's crop trimmed to the hero aspect around the same
+       centre, so with object-fit:cover (centred) the tile and hero frames are pixel-identical
+       whenever the morphing box has the other one's shape. To the detail page the tile snapshot
+       carries the whole morph and the sharp hero fades in on top at the end; back to work the
+       live tile takes over at once, since at the start it already looks exactly like the hero. */
     'html.ms-same::view-transition-old(' + NAME + '),html.ms-same::view-transition-new(' + NAME + '){mix-blend-mode:normal}' +
-    'html.ms-same.ms-to-detail::view-transition-new(' + NAME + '){object-position:50% 27.2%;animation:ms-in .1s linear both}' +
-    'html.ms-same.ms-to-detail::view-transition-old(' + NAME + '){animation:ms-out .01s linear .1s both}' +
-    /* same photo, back to work: the hero crops down to exactly the tile, then the tile fades in on top */
-    'html.ms-same.ms-to-work::view-transition-old(' + NAME + '){object-position:50% 27.2%;animation:none}' +
-    'html.ms-same.ms-to-work::view-transition-new(' + NAME + '){animation:ms-in .1s linear .65s both}' +
+    'html.ms-same.ms-to-detail::view-transition-old(' + NAME + '){animation:none}' +
+    'html.ms-same.ms-to-detail::view-transition-new(' + NAME + '){animation:ms-in .12s linear .63s both}' +
+    'html.ms-same.ms-to-work::view-transition-new(' + NAME + '){animation:ms-in .08s linear both}' +
+    'html.ms-same.ms-to-work::view-transition-old(' + NAME + '){animation:ms-out .01s linear .08s both}' +
     /* Alibi has no hero photo: the tile grows into the constellation band, so its photo clears early */
     'html.ms-band.ms-to-detail::view-transition-old(' + NAME + '){animation:ms-out .35s ease both}' +
     'html.ms-band.ms-to-detail::view-transition-new(' + NAME + '){animation:ms-in .5s ease .1s both}' +
