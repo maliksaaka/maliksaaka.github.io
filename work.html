@@ -96,10 +96,10 @@ a.spec-row.lnk:hover .d::after{opacity:1}
 
 /* FILTER */
 .filter{max-width:100%;position:sticky;top:var(--nav);z-index:20;display:flex;gap:.25rem;flex-wrap:wrap;padding:.6rem 0;margin:2.5rem 0 1.5rem;background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--rule)}
-.filter button{padding:.25rem .65rem;border:1px solid var(--rule);font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted);transition:color .15s,background .15s,border-color .15s}
-.filter button sup{font-family:var(--mono);font-size:9px;margin-left:.25em}
-.filter button:hover{color:var(--ink);border-color:var(--ink)}
-.filter button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.filter a{padding:.25rem .65rem;border:1px solid var(--rule);font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted);transition:color .15s,background .15s,border-color .15s}
+.filter a sup{font-family:var(--mono);font-size:9px;line-height:0;margin-left:.3em;vertical-align:.55em;font-feature-settings:'zero' 0}
+.filter a:hover{color:var(--ink);border-color:var(--ink)}
+.filter a.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
 /* WORK GROUPS */
 .group{margin-bottom:clamp(3rem,6vw,5rem);transition:opacity .3s var(--ease)}
@@ -184,7 +184,7 @@ a.spec-row.lnk:hover .d::after{opacity:1}
   .spec-row{grid-template-columns:1fr 1fr;row-gap:.1rem} .spec-row .d{grid-column:1/-1} .spec-h{display:none}
   .index{grid-template-columns:1fr}
   .filter{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
-  .filter button{white-space:nowrap}
+  .filter a{white-space:nowrap}
   .tile.wide{grid-column:span 2}
 }
 
@@ -196,7 +196,7 @@ b,strong{font-weight:500}
 body{line-height:1.75}
 .mark{font-size:12px;font-weight:500}
 .display{font-weight:400;font-size:clamp(22px,2.8vw,38px);letter-spacing:-.03em;padding-left:0;text-transform:none}
-.filter button{font-size:11px}
+.filter a{font-size:11px}
 .g-bio p{line-height:1.7}
 .g-bio,.g-blurb,.g-head p{max-width:72ch}
 .display{word-spacing:-.3em}
@@ -220,7 +220,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset
 
 <section class="s" id="work">
   <h2 class="display rv">Work</h2>
-  <div class="filter" id="filter"></div>
+  <nav class="filter" id="filter" aria-label="Work sections"></nav>
   <div id="groups"></div>
 </section>
 
@@ -240,7 +240,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset
 <nav class="bnav" aria-label="Site">
   <a href="index.html" class="mark">Malik Saaka</a>
   <ul>
-    <li><a href="#work">Work</a></li>
+    <li><a href="#special-projects" id="nav-work">Work</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -248,21 +248,20 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset
 <script>
 const PH = '[Placeholder]';
 const CATS = [
-  {id:'special', duo:1, name:'Special Projects', org:'Selected', blurb:'One-off projects and collaborations.', items:[
+  {id:'special', hash:'special-projects', duo:1, name:'Special Projects', org:'Selected', blurb:'One-off projects and collaborations.', items:[
     {n:'Mugler', m:'F/W 2024', s:'Music Director', href:'work/company.html?c=mugler', img:'assets/mugler-tile.jpg', cover:1},
     {n:'Alibi', m:'2020', s:'Community Campaign Director', href:'work/company.html?c=alibi-lounge', img:'assets/alibi-lounge-tile.jpg', cover:1},
     {n:'SXYLK', m:'2014 – Present', s:'Producer & DJ', href:'work/company.html?c=sxylk', img:'assets/sxylk-tile.jpg', cover:1}]},
-  {id:'tenure', list:1, name:'Tenure', org:'Companies', blurb:'Where Malik has worked, most recent first.', items:[
+  {id:'tenure', hash:'tenure', list:1, name:'Tenure', org:'Companies', blurb:'Where Malik has worked, most recent first.', items:[
     {slug:'solo-funds', co:'SoLo Funds', t:'Growth & Partnerships', y:'Mar 2024 – Present', d:'Runs the member relationship end to end and scaled SoLo Gold, the VIP lender community.'},
     {slug:'the-wealth-break', co:'The Wealth Break', t:'Executive Producer', y:'Mar 2025 – Present', d:'Executive produced 12 episodes of a podcast distributed by iHeartRadio and Essence.'},
     {slug:'basic-space', co:'Basic.Space', t:'Strategic Partnerships Lead', y:'Jan 2023 – Feb 2024', d:'Produced 15 events across Los Angeles solo, 70 to 200 guests each.'}]},
-  {id:'susa', vert:1, bio:['<a class="il" href="https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz" target="_blank" rel="noopener noreferrer">Subtle Urban Sex Appeal</a> (SUSA) is a multi-layered sensory experience that combines my love of philosophy, culture and sound design. I thread disparate topics together into commentary on society and culture.', '60K+ subscribers across Substack, Patreon, TikTok and Instagram.'], link:'https://instagram.com/subtle.urban.sex.appeal', linkText:'@subtle.urban.sex.appeal', name:'SUSA', fact:'', org:'@subtle.urban.sex.appeal', blurb:'Episodes and reels from the podcast. Full grid below.', links:[{l:'Website', t:'subtleurbansexappeal.com', u:'https://subtleurbansexappeal.com'},{l:'Substack', t:'saakamalik.substack.com', u:'https://saakamalik.substack.com'},{l:'Patreon', t:'patreon.com/subtleurbansexappeal', u:'https://www.patreon.com/subtleurbansexappeal'},{l:'Spotify', t:'Subtle Urban Sex Appeal', u:'https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz'}], items:[]},
+  {id:'susa', hash:'susa', vert:1, bio:['<a class="il" href="https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz" target="_blank" rel="noopener noreferrer">Subtle Urban Sex Appeal</a> (SUSA) is a multi-layered sensory experience that combines my love of philosophy, culture and sound design. I thread disparate topics together into commentary on society and culture.', '60K+ subscribers across Substack, Patreon, TikTok and Instagram.'], link:'https://instagram.com/subtle.urban.sex.appeal', linkText:'@subtle.urban.sex.appeal', name:'SUSA', fact:'', org:'@subtle.urban.sex.appeal', blurb:'Episodes and reels from the podcast. Full grid below.', links:[{l:'Website', t:'subtleurbansexappeal.com', u:'https://subtleurbansexappeal.com'},{l:'Substack', t:'saakamalik.substack.com', u:'https://saakamalik.substack.com'},{l:'Patreon', t:'patreon.com/subtleurbansexappeal', u:'https://www.patreon.com/subtleurbansexappeal'},{l:'Spotify', t:'Subtle Urban Sex Appeal', u:'https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz'}], items:[]},
 ];
 const esc = s => s.replace(/&/g,'&amp;');
 const pad = n => String(n).padStart(2,'0');
-// filter
-const total = CATS.filter(c=>!c.list).reduce((a,c)=>a+c.items.length,0);
-document.getElementById('filter').innerHTML = `<button class="on" data-f="all">All</button>` + CATS.map(c=>`<button data-f="${c.id}">${esc(c.name)}${c.links?'':`<sup>${c.items.length}</sup>`}</button>`).join('');
+// section tabs: one section at a time, each linkable by hash (#special-projects, #tenure, #susa)
+document.getElementById('filter').innerHTML = CATS.map((c,ci)=>`<a href="#${c.hash}" data-f="${c.id}">${esc(c.name)}<sup>${ci+1}</sup></a>`).join('');
 const tiles = c => `<div class="grid${c.vert?' vert':''}${c.duo?' duo':''}${c.duo&&c.items.length===3?' trio':''}">${c.items.map(i=>`
     <a class="tile${i.w?' wide':''}"${i.href?` href="${i.href}"`:''}><div class="media${i.cover?' cover':''}">${i.img?`<img src="${i.img}" alt="${i.cover?i.n:''}">`:`<div class="ph"></div>`}</div>
     ${i.href?`<div class="cap"><span class="n">${i.n}</span><span class="m">${i.m}</span></div>`:''}</a>`).join('')}</div>`;
@@ -276,12 +275,30 @@ document.getElementById('groups').innerHTML = CATS.map((c,ci)=>`
   ${c.bio?`<div class="g-bio">${c.bio.map(x=>`<p>${x}</p>`).join('')}</div>`:''}
   ${c.fact?`<p class="fact">${esc(c.fact)}</p>`:''}
   ${c.links?linkrows(c):c.list?tenure(c):tiles(c)}</div>`).join('');
-// filter behaviour
+// tab behaviour. #contact keeps whichever section is showing; unknown or legacy (#work) hashes show Special Projects.
+let cur = null;
 const setF = f => {
-  document.querySelectorAll('#filter button').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
-  document.querySelectorAll('.group').forEach(g=>g.classList.toggle('hide', f!=='all' && g.dataset.cat!==f));
+  cur = f;
+  const c = CATS.find(x=>x.id===f);
+  document.querySelectorAll('#filter a').forEach(a=>{ const on=a.dataset.f===f; a.classList.toggle('on',on); if(on) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  document.querySelectorAll('.group').forEach(g=>g.classList.toggle('hide', g.dataset.cat!==f));
+  document.getElementById('nav-work').setAttribute('href', '#'+c.hash);
 };
-document.getElementById('filter').onclick = e => { const b=e.target.closest('button'); if(b) setF(b.dataset.f); };
+const route = (scroll) => {
+  const h = location.hash.slice(1), c = CATS.find(x=>x.hash===h);
+  if (c) { setF(c.id); if (scroll && scrollY > 0) scrollTo({top:0}); return; }
+  if (h === 'contact' && cur) return;
+  if (h === 'work') history.replaceState(null, '', '#'+CATS[0].hash);
+  setF(cur || CATS[0].id);
+};
+route(false);
+addEventListener('hashchange', () => route(true));
+// clicking the tab (or Work in the nav) that is already showing just returns to the top of Work
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const c = CATS.find(x=>'#'+x.hash===a.getAttribute('href'));
+  if (c && location.hash === '#'+c.hash) { e.preventDefault(); scrollTo({top:0}); }
+});
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
 if(new URLSearchParams(location.search).has('still')) document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')); else document.querySelectorAll('.rv').forEach(el=>io.observe(el));
