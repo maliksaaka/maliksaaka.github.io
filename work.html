@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<link rel="preload" href="assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malik Saaka — Work</title>
+<meta name="description" content="Design mockup. Placeholder copy throughout.">
+<style>
+@font-face{font-family:"IBM Plex Mono";src:url("assets/fonts/IBMPlexMono-Light.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("assets/fonts/IBMPlexMono-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("assets/fonts/IBMPlexMono-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#000; --ink:#fff; --muted:#8a8a8a; --subtle:#555; --rule:rgba(255,255,255,.14);
+  --ph:#0e0e0e; --ph2:#1c1c1c;
+  --glass:rgba(255,255,255,.80); --glass-ink:#000; --glass-blur:blur(24px) saturate(180%);
+  --font:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --t:13px; --pad:clamp(15px,2vw,50px); --nav:3.25rem;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+[data-theme=light]{ --bg:#fff; --ink:#000; --muted:#6e6e73; --subtle:#86868b; --rule:rgba(0,0,0,.1); --ph:#ededf0; --ph2:#f6f6f8; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--font);font-size:var(--t);line-height:1.75;color:var(--ink);background:var(--bg);transition:background .15s ease-out,color .15s ease-out;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+::selection{background:var(--ink);color:var(--bg)}
+.ph-tag{font-family:var(--mono);font-size:10px;letter-spacing:0;text-transform:none;color:#e0006e}
+.ph-note{opacity:.5}
+
+/* NAV */
+.mark{font-weight:500;font-size:13px;line-height:1;letter-spacing:-.02em;white-space:nowrap}
+
+/* HERO */
+.label{position:relative;z-index:2;width:100%;max-width:540px;padding:1.25rem;background:var(--glass);color:var(--glass-ink);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur)}
+.label .k{display:block}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.2rem 0}
+.rule{border-bottom:1px solid currentColor}
+.label .title{padding-bottom:.25rem;margin-bottom:.3rem}
+.b{font-weight:500}
+.label p{margin-top:.6rem;letter-spacing:.01em}
+.label .bio{font-size:15px;line-height:1.6;margin:0 0 1.1rem;letter-spacing:0}
+.label .foot-row{border-top:1px solid currentColor;padding-top:.45rem}
+.label .foot-row a{transition:opacity .15s}.label .foot-row a:hover{opacity:.6}
+.hint{position:absolute;bottom:var(--pad);left:50%;transform:translateX(-50%);z-index:2;color:#fff;opacity:.6;font-family:var(--mono);font-size:10px;letter-spacing:0;text-transform:none}
+
+/* SECTIONS */
+section.s{padding:clamp(4rem,9vw,8rem) var(--pad) 0}
+#work{padding-top:calc(var(--nav) + clamp(2rem,5vw,4.5rem))}
+#work,#contact{scroll-margin-top:var(--nav)}
+.s-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:.35rem;margin-bottom:1.25rem}
+.s-head h2{font-weight:400;font-size:var(--t)}
+.s-head .hlink{font-family:var(--font);font-size:12px;color:var(--ink);text-decoration:underline;text-underline-offset:3px;transition:opacity .15s}.s-head .hlink:hover{opacity:.6}
+.fact{font-size:12px;color:var(--muted);margin:-.6rem 0 1.25rem}
+.g-bio{max-width:62ch;margin:-.4rem 0 1.6rem}
+.g-bio p{margin:0 0 .8rem;line-height:1.55}
+.g-bio p:last-child{margin-bottom:0}
+.g-bio + .fact{margin-top:0}
+.g-bio a.il{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:var(--subtle);transition:text-decoration-color .2s}
+.g-bio a.il:hover{text-decoration-color:currentColor}
+.s-head .count{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.display{font-weight:500;font-size:clamp(28px,4.2vw,58px);letter-spacing:0;text-transform:none;text-align:center;line-height:1;margin:0 0 clamp(2.5rem,5vw,4rem);padding-left:.32em}
+.display-sub{text-align:center;color:var(--muted);margin-bottom:clamp(2.5rem,5vw,4rem)}
+
+/* INDEX (akili-style category rows) */
+.index{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.index .cat{padding:1rem 1rem 1.1rem 0;border-right:1px solid var(--rule);margin-right:1rem;cursor:pointer}
+.index .cat:last-child{border-right:0;margin-right:0}
+.index .cat h3{font-weight:500;font-size:var(--t);display:flex;justify-content:space-between;padding-right:.25rem}
+.index .cat h3 span{font-family:var(--mono);font-weight:400;font-size:11px;color:var(--muted)}
+.index .cat{position:relative;min-height:9.5rem;transition:background .2s}
+.index .cat .no{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.02em;color:var(--muted);margin-bottom:2.2rem}
+.index .cat p{color:var(--muted);margin-top:.15rem}
+.index .cat em{position:absolute;bottom:1rem;right:1rem;font-style:normal;font-size:12px;opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .3s var(--ease)}
+.index .cat:hover em{opacity:1;transform:none}
+.spec{border-top:0}
+.spec-row .go{text-align:right;opacity:.3;transition:opacity .2s,transform .3s var(--ease)}
+a.spec-row.lnk:hover .go{opacity:1;transform:translateX(3px)}
+.spec-row{display:grid;grid-template-columns:1.2fr 1.4fr 1fr 2rem;gap:var(--pad);padding:.7rem 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.spec-row .yr{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.spec-row .d{color:var(--muted);display:flex;justify-content:space-between;gap:1.5rem}
+a.spec-row.lnk .d::after{content:"\2192\FE0E\00A0View";font-family:var(--font);font-variant-emoji:text;font-size:11px;letter-spacing:0;text-transform:none;color:var(--ink);opacity:.35;white-space:nowrap;transition:opacity .2s,transform .3s var(--ease)}
+a.spec-row.lnk{transition:background .2s,padding .3s var(--ease)}
+a.spec-row.lnk:hover{background:color-mix(in srgb,var(--ink) 4%,transparent);padding-left:.6rem;padding-right:.6rem}
+a.spec-row.lnk:hover .d::after{opacity:1}
+.spec-h{padding:.4rem 0;font-size:11px;letter-spacing:0;text-transform:none;color:var(--muted)}
+.spec-foot{display:flex;justify-content:space-between;align-items:baseline;padding-top:.8rem}
+.spec-foot .li{font-size:12px;text-decoration:underline;text-underline-offset:3px;opacity:.85}
+.spec-foot .li:hover{opacity:1}
+.index .cat:hover h3{text-decoration:underline;text-underline-offset:3px}
+
+/* FILTER */
+.filter{max-width:100%;position:sticky;top:var(--nav);z-index:20;display:flex;gap:.25rem;flex-wrap:wrap;padding:.6rem 0;margin:2.5rem 0 1.5rem;background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--rule)}
+.filter button{padding:.25rem .65rem;border:1px solid var(--rule);font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted);transition:color .15s,background .15s,border-color .15s}
+.filter button sup{font-family:var(--mono);font-size:9px;margin-left:.25em}
+.filter button:hover{color:var(--ink);border-color:var(--ink)}
+.filter button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* WORK GROUPS */
+.group{margin-bottom:clamp(3rem,6vw,5rem);transition:opacity .3s var(--ease)}
+.group.hide{display:none}
+.g-blurb{color:var(--muted);max-width:62ch;margin:-.6rem 0 1rem}
+.g-head h3{font-weight:500;font-size:var(--t)}
+.g-head h3 small{display:block;font-weight:400;color:var(--muted);font-family:var(--mono);font-size:10px;letter-spacing:0;text-transform:none}
+.g-head p{color:var(--muted);max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,1vw,16px)}
+.grid.vert{grid-template-columns:repeat(6,minmax(0,1fr))}
+.grid.duo{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid.duo .tile .media{aspect-ratio:16/10}
+.grid.duo.trio{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.grid.duo.trio{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.grid.duo.trio{grid-template-columns:1fr}}
+.tile .sub .view{font-size:11px;letter-spacing:0;text-transform:none;color:var(--ink);opacity:.4;transition:opacity .2s}
+.tile:hover .sub .view{opacity:1}
+.grid.vert .tile .media{aspect-ratio:9/16}
+.tile{display:block;cursor:pointer;min-width:0}
+.tile .media{position:relative;aspect-ratio:4/5;background:var(--ph);overflow:hidden}
+.tile .media:has(img){background:#000}
+.tile .media .ph{background:radial-gradient(120% 90% at 30% 20%,var(--ph2),var(--ph) 70%)}
+.tile .media .ph i{position:absolute;left:.7rem;top:.6rem;font-style:normal;opacity:.7}
+.tile .media .ph b{position:absolute;right:.7rem;bottom:.6rem;font-weight:400;opacity:.7}
+.tile.wide{grid-column:span 2}
+.tile.wide .media{aspect-ratio:auto;height:0;padding-bottom:calc(62.5% - 3px)}
+.tile .media{outline:1px solid var(--rule);outline-offset:-1px}
+.tile .media .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;letter-spacing:0;text-transform:none;color:var(--subtle)}
+.tile .media img{position:absolute;inset:0;margin:auto;width:78%;height:62%;object-fit:contain;transition:transform .6s var(--ease)}
+.tile .media::after{content:"";position:absolute;inset:0;background:#000;opacity:0;transition:opacity .25s}
+.tile:hover .media::after{opacity:.12}
+.tile:hover .media img{transform:scale(1.025)}
+.tile .media.cover img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.tile .cap{display:flex;justify-content:space-between;gap:.75rem;padding-top:.45rem;font-size:12px;letter-spacing:0;text-transform:none}
+.tile .cap .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ar{font-family:var(--font);font-size:.8em;line-height:1;display:inline-block;vertical-align:.08em;font-style:normal;font-variant-emoji:text}
+.tile .cap .n::before{content:"\2192\FE0E\00A0";font-family:var(--font);font-size:.8em;font-variant-emoji:text;opacity:.5}
+.tile .cap .m{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap;padding-top:.15em}
+.tile .sub{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);padding-left:1.15em}
+.tile .sub .ph-tag{font-size:9px;opacity:.75}
+
+/* SUSA */
+.susa{background:#000;color:#fff;margin-top:clamp(4rem,9vw,8rem);padding:clamp(4rem,9vw,8rem) var(--pad)}
+.susa .s-head{border-color:#fff}
+.susa .display-sub{color:#8a8a8a}
+.reels{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(6px,.8vw,12px)}
+.reel{position:relative;aspect-ratio:9/16;background:#000;outline:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.reel img{max-width:78%;max-height:62%;object-fit:contain}
+.reel .ep{position:absolute;left:.6rem;right:.6rem;bottom:.55rem;display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.55)}
+.reel .cc{position:absolute;top:58%;left:0;right:0;margin-top:3.2rem;text-align:center;font-weight:500;font-size:11px;letter-spacing:.02em;opacity:0}
+.reel:hover .cc{opacity:1}
+.susa-foot{display:flex;justify-content:space-between;margin-top:1.25rem;font-size:12px;color:#8a8a8a}
+.susa-foot a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* ABOUT + CONTACT panels (spec-sheet cards) */
+.panels.one{grid-template-columns:minmax(0,560px);justify-content:center}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad);padding:clamp(4rem,9vw,8rem) var(--pad)}
+.card{background:#fff;color:#000;padding:1.25rem;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+[data-theme=dark] .card{background:#0d0d0d;color:#fff;outline:1px solid rgba(255,255,255,.08)}
+.card .title{border-bottom:1px solid currentColor;padding-bottom:.3rem;margin-bottom:.35rem}
+.card .item{border-bottom:1px solid currentColor;padding:.45rem 0 .6rem}
+.card .item:last-child{border-bottom:0}
+.card .item p{margin-top:.25rem;opacity:.8}
+.card .cap{text-transform:none;letter-spacing:0;font-size:12px}
+.card a.u{text-decoration:underline;text-underline-offset:3px}
+.foot{display:flex;justify-content:space-between;padding:0 var(--pad) var(--pad);color:var(--muted);font-size:12px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .grid.vert{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .index{grid-template-columns:1fr 1fr}
+  .index .cat{border-right:0;margin-right:0;border-bottom:1px solid var(--rule)}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .reels{grid-template-columns:repeat(3,1fr)}
+  .panels{grid-template-columns:1fr}
+  .g-head{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .spec-row{grid-template-columns:1fr 1fr;row-gap:.1rem} .spec-row .d{grid-column:1/-1} .spec-h{display:none}
+  .index{grid-template-columns:1fr}
+  .filter{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .filter button{white-space:nowrap}
+  .tile.wide{grid-column:span 2}
+}
+
+/* type: IBM Plex Mono tuning */
+body{letter-spacing:-.01em;font-feature-settings:'zero' 0}
+b,strong{font-weight:500}
+.ar{font-size:.85em;vertical-align:.04em}
+:root{--t:12px}
+body{line-height:1.75}
+.mark{font-size:12px;font-weight:500}
+.display{font-weight:400;font-size:clamp(22px,2.8vw,38px);letter-spacing:-.03em;padding-left:0;text-transform:none}
+.filter button{font-size:11px}
+.g-bio p{line-height:1.7}
+.g-bio,.g-blurb,.g-head p{max-width:72ch}
+.display{word-spacing:-.3em}
+
+/* ===== redesign: bottom nav ===== */
+:root{--nav:0px;--bnav:2.75rem}
+body{padding-bottom:var(--bnav)}
+#work{padding-top:clamp(3rem,7vw,6rem)}
+.bnav{position:fixed;inset:auto 0 0 0;height:var(--bnav);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--rule);font-size:11px;color:var(--ink)}
+.bnav ul{display:flex;gap:1.5rem;list-style:none}
+.bnav a{color:var(--muted);transition:color .15s}
+.bnav a.mark{color:var(--ink);font-size:11px}
+.bnav a:hover{color:var(--ink)}
+.bnav a:focus-visible{outline:1px solid var(--ink);outline-offset:3px;color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+@media(max-width:600px){.bnav ul{gap:1.1rem}}
+</style>
+</head>
+<body id="top">
+
+
+<section class="s" id="work">
+  <h2 class="display rv">Work</h2>
+  <div class="filter" id="filter"></div>
+  <div id="groups"></div>
+</section>
+
+<div class="panels one">
+  <div class="card rv" id="contact">
+    <div class="row title"><span>Contact</span><span>Los Angeles</span></div>
+    <div class="item">
+      <div class="row"><span>Email</span><a class="u" href="mailto:maliksaaka@gmail.com">maliksaaka@gmail.com</a></div>
+      <div class="row"><span>Instagram</span><a class="u" href="https://instagram.com/saakamalik" target="_blank" rel="noopener">@saakamalik</a></div>
+      <div class="row"><span>SUSA</span><a class="u" href="https://instagram.com/subtle.urban.sex.appeal" target="_blank" rel="noopener">@subtle.urban.sex.appeal</a></div>
+      <div class="row"><span>LinkedIn</span><a class="u" href="https://www.linkedin.com/in/m-saaka/" target="_blank" rel="noopener noreferrer">m-saaka</a></div>
+    </div>
+    <div class="item"><div class="row"><span>&copy;&#xFE0E; 2026 Malik Saaka</span><span></span></div></div>
+  </div>
+</div>
+
+<nav class="bnav" aria-label="Site">
+  <a href="index.html" class="mark">Malik Saaka</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+const PH = '[Placeholder]';
+const CATS = [
+  {id:'special', duo:1, name:'Special Projects', org:'Selected', blurb:'One-off projects and collaborations.', items:[
+    {n:'Mugler', m:'F/W 2024', s:'Music Director', href:'work/company.html?c=mugler', img:'assets/mugler-tile.jpg', cover:1},
+    {n:'Alibi Lounge', m:'2020', s:'Community Campaign Director', href:'work/company.html?c=alibi-lounge', img:'assets/alibi-lounge-tile.jpg', cover:1},
+    {n:'SXYLK', m:'2014 – Present', s:'Producer & DJ', href:'work/company.html?c=sxylk', img:'assets/sxylk-tile.jpg', cover:1}]},
+  {id:'tenure', list:1, name:'Tenure', org:'Companies', blurb:'Where Malik has worked, most recent first.', items:[
+    {slug:'solo-funds', co:'SoLo Funds', t:'Growth & Partnerships', y:'Mar 2024 – Present', d:'Runs the member relationship end to end and scaled SoLo Gold, the VIP lender community.'},
+    {slug:'the-wealth-break', co:'The Wealth Break', t:'Executive Producer', y:'Mar 2025 – Present', d:'Executive produced 12 episodes of a podcast distributed by iHeartRadio and Essence.'},
+    {slug:'basic-space', co:'Basic.Space', t:'Strategic Partnerships Lead', y:'Jan 2023 – Feb 2024', d:'Produced 15 events across Los Angeles solo, 70 to 200 guests each.'}]},
+  {id:'susa', vert:1, bio:['<a class="il" href="https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz" target="_blank" rel="noopener noreferrer">Subtle Urban Sex Appeal</a> (SUSA) is a multi-layered sensory experience that combines my love of philosophy, culture and sound design. I thread disparate topics together into commentary on society and culture.', '60K+ subscribers across Substack, Patreon, TikTok and Instagram.'], link:'https://instagram.com/subtle.urban.sex.appeal', linkText:'@subtle.urban.sex.appeal', name:'SUSA', fact:'', org:'@subtle.urban.sex.appeal', blurb:'Episodes and reels from the podcast. Full grid below.', links:[{l:'Website', t:'subtleurbansexappeal.com', u:'https://subtleurbansexappeal.com'},{l:'Substack', t:'saakamalik.substack.com', u:'https://saakamalik.substack.com'},{l:'Patreon', t:'patreon.com/subtleurbansexappeal', u:'https://www.patreon.com/subtleurbansexappeal'},{l:'Spotify', t:'Subtle Urban Sex Appeal', u:'https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz'}], items:[]},
+];
+const esc = s => s.replace(/&/g,'&amp;');
+const pad = n => String(n).padStart(2,'0');
+// filter
+const total = CATS.filter(c=>!c.list).reduce((a,c)=>a+c.items.length,0);
+document.getElementById('filter').innerHTML = `<button class="on" data-f="all">All</button>` + CATS.map(c=>`<button data-f="${c.id}">${esc(c.name)}${c.links?'':`<sup>${c.items.length}</sup>`}</button>`).join('');
+const tiles = c => `<div class="grid${c.vert?' vert':''}${c.duo?' duo':''}${c.duo&&c.items.length===3?' trio':''}">${c.items.map(i=>`
+    <a class="tile${i.w?' wide':''}"${i.href?` href="${i.href}"`:''}><div class="media${i.cover?' cover':''}">${i.img?`<img src="${i.img}" alt="${i.cover?i.n:''}">`:`<div class="ph"></div>`}</div>
+    ${i.href?`<div class="cap"><span class="n">${i.n}</span><span class="m">${i.m}</span></div>`:''}</a>`).join('')}</div>`;
+const tenure = c => `<div class="spec">
+    ${c.items.map(i=>`<a class="spec-row lnk" href="work/company.html?c=${i.slug}"><span class="b">${esc(i.co)}</span><span>${esc(i.t)}</span><span class="yr">${i.y}</span><span class="go"><span class="ar">&rarr;&#xFE0E;</span></span></a>`).join('')}
+    <div class="spec-foot"><span></span><a href="https://www.linkedin.com/in/m-saaka/" target="_blank" rel="noopener noreferrer" class="li">Full history on LinkedIn <span class="ar">&nearr;&#xFE0E;</span></a></div></div>`;
+const linkrows = c => `<div class="spec">${c.links.map(x=>`<a class="spec-row lnk" href="${x.u}" target="_blank" rel="noopener noreferrer"><span class="b">${esc(x.l)}</span><span>${esc(x.t)}</span><span class="yr"></span><span class="go"><span class="ar">&nearr;&#xFE0E;</span></span></a>`).join('')}</div>`;
+document.getElementById('groups').innerHTML = CATS.map((c,ci)=>`
+ <div class="group rv" data-cat="${c.id}">
+  <div class="s-head"><h2>${pad(ci+1)} — ${esc(c.name)}</h2><span class="count">${c.link?`<a class="hlink" href="${c.link}" target="_blank" rel="noopener">${c.linkText} <span class="ar">&nearr;&#xFE0E;</span></a>`:pad(c.items.length)}</span></div>
+  ${c.bio?`<div class="g-bio">${c.bio.map(x=>`<p>${x}</p>`).join('')}</div>`:''}
+  ${c.fact?`<p class="fact">${esc(c.fact)}</p>`:''}
+  ${c.links?linkrows(c):c.list?tenure(c):tiles(c)}</div>`).join('');
+// filter behaviour
+const setF = f => {
+  document.querySelectorAll('#filter button').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
+  document.querySelectorAll('.group').forEach(g=>g.classList.toggle('hide', f!=='all' && g.dataset.cat!==f));
+};
+document.getElementById('filter').onclick = e => { const b=e.target.closest('button'); if(b) setF(b.dataset.f); };
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+if(new URLSearchParams(location.search).has('still')) document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')); else document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+<script src="assets/js/star-shape.js" defer></script>
+<script src="assets/js/star-cursor.js" defer></script>
+</body>
+</html>
