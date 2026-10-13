@@ -3,10 +3,23 @@
 <head>
 <link rel="preload" href="../assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <meta charset="utf-8">
-<link rel="icon" href="data:,">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Malik Saaka">
+<meta property="og:title" content="Malik Saaka | Work">
+<meta property="og:description" content="I can do anything.">
+<meta property="og:url" content="https://maliksaaka.com/work/company.html">
+<meta property="og:image" content="https://maliksaaka.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Malik Saaka | Work">
+<meta name="twitter:description" content="I can do anything.">
+<meta name="twitter:image" content="https://maliksaaka.com/og.png">
 <script src="../assets/js/page-tx.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Company — Malik Saaka (Mockup)</title>
+<title>Malik Saaka | Work</title>
 <style>
 @font-face{font-family:"IBM Plex Mono";src:url("../assets/fonts/IBMPlexMono-Light.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:"IBM Plex Mono";src:url("../assets/fonts/IBMPlexMono-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
@@ -278,7 +291,7 @@ document.getElementById('grp').textContent = c.grp||'Tenure';
 if((c.grp||'Tenure')!=='Tenure'){const lf=document.getElementById('li-foot'); if(lf) lf.remove();}
 // back links and the nav's Work return to this project's own section on the Work page
 document.querySelectorAll('a[data-back]').forEach(a=>a.href=`../work.html#${(c.grp||'Tenure')==='Tenure'?'tenure':'special-projects'}`);
-document.title = `${c.name} — Malik Saaka (Mockup)`;
+document.title = `${c.name} / Malik Saaka`;
 document.querySelectorAll('[data-f]').forEach(el=>{ const f=el.dataset.f; el.textContent = f==='no' ? String(i+1).padStart(2,'0') : (c[f]||''); });
 if(c.prev) document.getElementById('prevrow').hidden=false;
 if(c.result) document.getElementById('resrow').hidden=false;
