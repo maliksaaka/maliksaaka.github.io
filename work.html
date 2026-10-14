@@ -244,10 +244,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset
   <div class="card rv" id="contact">
     <div class="row title"><span>Contact</span><span>Los Angeles</span></div>
     <div class="item">
-      <div class="row"><span>Email</span><a class="u" href="mailto:maliksaaka@gmail.com">maliksaaka@gmail.com</a></div>
-      <div class="row"><span>Instagram</span><a class="u" href="https://instagram.com/saakamalik" target="_blank" rel="noopener">@saakamalik</a></div>
-      <div class="row"><span>SUSA</span><a class="u" href="https://instagram.com/subtle.urban.sex.appeal" target="_blank" rel="noopener">@subtle.urban.sex.appeal</a></div>
-      <div class="row"><span>LinkedIn</span><a class="u" href="https://www.linkedin.com/in/m-saaka/" target="_blank" rel="noopener noreferrer">m-saaka</a></div>
+      <div class="row"><span>SUSA</span><a class="u" href="https://subtleurbansexappeal.com" target="_blank" rel="noopener">subtleurbansexappeal.com</a></div>
     </div>
     <div class="item"><div class="row"><span>&copy;&#xFE0E; 2026 Malik Saaka</span><span></span></div></div>
   </div>
@@ -272,22 +269,19 @@ const CATS = [
     {slug:'solo-funds', co:'SoLo Funds', t:'Growth & Partnerships', y:'Mar 2024 – Present', d:'Runs the member relationship end to end and scaled SoLo Gold, the VIP lender community.'},
     {slug:'the-wealth-break', co:'The Wealth Break', t:'Executive Producer', y:'Mar 2025 – Present', d:'Executive produced 12 episodes of a podcast distributed by iHeartRadio and Essence.'},
     {slug:'basic-space', co:'Basic.Space', t:'Strategic Partnerships Lead', y:'Jan 2023 – Feb 2024', d:'Produced 15 events across Los Angeles solo, 70 to 200 guests each.'}]},
-  {id:'susa', hash:'susa', vert:1, bio:['<a class="il" href="https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz" target="_blank" rel="noopener noreferrer">Subtle Urban Sex Appeal</a> (SUSA) is a multi-layered sensory experience that combines my love of philosophy, culture and sound design. I thread disparate topics together into commentary on society and culture.', '60K+ subscribers across Substack, Patreon, TikTok and Instagram.'], link:'https://instagram.com/subtle.urban.sex.appeal', linkText:'@subtle.urban.sex.appeal', name:'SUSA', fact:'', org:'@subtle.urban.sex.appeal', blurb:'Episodes and reels from the podcast. Full grid below.', links:[{l:'Website', t:'subtleurbansexappeal.com', u:'https://subtleurbansexappeal.com'},{l:'Substack', t:'saakamalik.substack.com', u:'https://saakamalik.substack.com'},{l:'Patreon', t:'patreon.com/subtleurbansexappeal', u:'https://www.patreon.com/subtleurbansexappeal'},{l:'Spotify', t:'Subtle Urban Sex Appeal', u:'https://open.spotify.com/show/3WDJjs8fszaxujVlsfuVpz'}], items:[]},
+  {id:'susa', hash:'susa', vert:1, bio:['<a class="il" href="https://subtleurbansexappeal.com" target="_blank" rel="noopener noreferrer">Subtle Urban Sex Appeal</a> (SUSA) is a multi-layered sensory experience that combines my love of philosophy, culture and sound design. I thread disparate topics together into commentary on society and culture.', '60K+ subscribers across Substack, Patreon, TikTok and Instagram.'], link:'https://subtleurbansexappeal.com', linkText:'subtleurbansexappeal.com', name:'SUSA', fact:'', org:'subtleurbansexappeal.com', blurb:'Episodes and reels from the podcast. Full grid below.', links:[{l:'Website', t:'subtleurbansexappeal.com', u:'https://subtleurbansexappeal.com'}], items:[]},
 ];
 const esc = s => s.replace(/&/g,'&amp;');
 const pad = n => String(n).padStart(2,'0');
 // section tabs: one section at a time, each linkable by hash (#special-projects, #tenure, #susa)
 document.getElementById('filter').innerHTML = CATS.map((c,ci)=>`<a href="#${c.hash}" data-f="${c.id}">${esc(c.name)}<sup>${ci+1}</sup></a>`).join('');
 const csAlt = {mugler:'Mugler F/W 2024 show', alibi:'Alibi Lounge community campaign', sxylk:'SXYLK'};
-const cases = c => `<div class="grid duo cs-list">${c.items.map((i,k)=>`
-    <a class="tile cs" href="${i.href}"><div class="media grain"><img src="${i.img}" alt="${csAlt[i.n.toLowerCase()]||i.n}" loading="${k?'lazy':'eager'}"></div>
-    <div class="cs-txt"><span class="cs-no">${pad(k+1)}</span><h3>${i.n}</h3><p>${i.s}<br><span>${i.m}</span></p><span class="cs-go">View <span class="ar">&rarr;&#xFE0E;</span></span></div></a>`).join('')}</div>`;
-const tiles = c => c.duo ? cases(c) : `<div class="grid${c.vert?' vert':''}${c.duo?' duo':''}${c.duo&&c.items.length===3?' trio':''}">${c.items.map(i=>`
-    <a class="tile${i.w?' wide':''}"${i.href?` href="${i.href}"`:''}><div class="media${i.cover?' cover':''}">${i.img?`<img src="${i.img}" alt="${i.cover?i.n:''}">`:`<div class="ph"></div>`}</div>
+const tiles = c => `<div class="grid${c.vert?' vert':''}${c.duo?' duo':''}${c.duo&&c.items.length===3?' trio':''}">${c.items.map(i=>`
+    <a class="tile${i.w?' wide':''}"${i.href?` href="${i.href}"`:''}><div class="media${i.cover?' cover':''}">${i.img?`<img src="${i.img}" alt="${i.cover?(csAlt[i.n.toLowerCase()]||i.n):''}">`:`<div class="ph"></div>`}</div>
     ${i.href?`<div class="cap"><span class="n">${i.n}</span><span class="m">${i.m}</span></div>`:''}</a>`).join('')}</div>`;
 const tenure = c => `<div class="spec">
     ${c.items.map(i=>`<a class="spec-row lnk" href="work/company.html?c=${i.slug}"><span class="b">${esc(i.co)}</span><span>${esc(i.t)}</span><span class="yr">${i.y}</span><span class="go"><span class="ar">&rarr;&#xFE0E;</span></span></a>`).join('')}
-    <div class="spec-foot"><span></span><a href="https://www.linkedin.com/in/m-saaka/" target="_blank" rel="noopener noreferrer" class="li">Full history on LinkedIn <span class="ar">&nearr;&#xFE0E;</span></a></div></div>`;
+    <div class="spec-foot"><span></span></div></div>`;
 const linkrows = c => `<div class="spec">${c.links.map(x=>`<a class="spec-row lnk" href="${x.u}" target="_blank" rel="noopener noreferrer"><span class="b">${esc(x.l)}</span><span>${esc(x.t)}</span><span class="yr"></span><span class="go"><span class="ar">&nearr;&#xFE0E;</span></span></a>`).join('')}</div>`;
 document.getElementById('groups').innerHTML = CATS.map((c,ci)=>`
  <div class="group rv" data-cat="${c.id}">
