@@ -227,6 +227,9 @@ body{padding-bottom:var(--bnav)}
 a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
 @media(max-width:600px){.bnav ul{gap:1.1rem}}
 </style>
+<link rel="preload" href="assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/refine.css">
+<script src="assets/js/refine.js" defer></script>
 </head>
 <body id="top">
 
@@ -275,7 +278,11 @@ const esc = s => s.replace(/&/g,'&amp;');
 const pad = n => String(n).padStart(2,'0');
 // section tabs: one section at a time, each linkable by hash (#special-projects, #tenure, #susa)
 document.getElementById('filter').innerHTML = CATS.map((c,ci)=>`<a href="#${c.hash}" data-f="${c.id}">${esc(c.name)}<sup>${ci+1}</sup></a>`).join('');
-const tiles = c => `<div class="grid${c.vert?' vert':''}${c.duo?' duo':''}${c.duo&&c.items.length===3?' trio':''}">${c.items.map(i=>`
+const csAlt = {mugler:'Mugler F/W 2024 show', alibi:'Alibi Lounge community campaign', sxylk:'SXYLK'};
+const cases = c => `<div class="grid duo cs-list">${c.items.map((i,k)=>`
+    <a class="tile cs" href="${i.href}"><div class="media grain"><img src="${i.img}" alt="${csAlt[i.n.toLowerCase()]||i.n}" loading="${k?'lazy':'eager'}"></div>
+    <div class="cs-txt"><span class="cs-no">${pad(k+1)}</span><h3>${i.n}</h3><p>${i.s}<br><span>${i.m}</span></p><span class="cs-go">View <span class="ar">&rarr;&#xFE0E;</span></span></div></a>`).join('')}</div>`;
+const tiles = c => c.duo ? cases(c) : `<div class="grid${c.vert?' vert':''}${c.duo?' duo':''}${c.duo&&c.items.length===3?' trio':''}">${c.items.map(i=>`
     <a class="tile${i.w?' wide':''}"${i.href?` href="${i.href}"`:''}><div class="media${i.cover?' cover':''}">${i.img?`<img src="${i.img}" alt="${i.cover?i.n:''}">`:`<div class="ph"></div>`}</div>
     ${i.href?`<div class="cap"><span class="n">${i.n}</span><span class="m">${i.m}</span></div>`:''}</a>`).join('')}</div>`;
 const tenure = c => `<div class="spec">
