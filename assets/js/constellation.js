@@ -169,6 +169,10 @@
       if (d < CURSOR && d > 1) { var f = (1 - d / CURSOR) * 0.2; tx = dx * f; ty = dy * f; }
     }
     p.ox += (tx - p.ox) * 0.06 * k; p.oy += (ty - p.oy) * 0.06 * k;
+    // hover glow: rises near the cursor, relaxes slowly once it moves away or leaves
+    var hx = mouse.x - p.px, hy = mouse.y - p.py, hd = Math.sqrt(hx * hx + hy * hy);
+    var h = mouse.on && hd < CURSOR ? 1 - hd / CURSOR : 0;
+    p.hv = (p.hv || 0) + (h - (p.hv || 0)) * (h > (p.hv || 0) ? 0.12 : 0.04) * k;
   }
 
   function step(dt) {
@@ -190,10 +194,10 @@
   }
 
   function dot(p) {
-    var k = twinkle(p), a = Math.min(1, p.a * k), fl = running ? (p.fl || 0) : 0;
+    var hv = p.hv || 0, k = twinkle(p) * (1 + 0.9 * hv), a = Math.min(1, p.a * k), fl = running ? (p.fl || 0) : 0;
     var x = p.px + p.ox, y = p.py + p.oy;
     // brightening beyond full opacity shows as a slight swell; flares lengthen the rays
-    var sc = 1 + Math.max(0, p.a * k - 1) * 0.35 + 0.55 * fl;
+    var sc = 1 + Math.max(0, p.a * k - 1) * 0.35 + 0.55 * fl + 0.3 * hv;
     if (p.bright || fl > 0.15) {     // soft light-grey halo, blooms during a flare
       var hs = p.r * (p.bright ? 5 : 3) * (1 + 1.2 * fl);
       ctx.globalAlpha = Math.min(1, (p.bright ? 0.55 : 0) + 0.9 * fl);
@@ -220,16 +224,21 @@
       }
     }
     ctx.stroke();
-    if (mouse.on) {
-      ctx.lineWidth = 0.6;
-      var near = [];
-      for (i = 0; i < field.length; i++) near.push(field[i]);
-      for (i = 0; i < clusters.length; i++) for (j = 0; j < clusters[i].st.length; j++) near.push(clusters[i].st[j]);
-      for (i = 0; i < near.length; i++) {
-        a = near[i]; var dx = a.px + a.ox - mouse.x, dy = a.py + a.oy - mouse.y, d = Math.sqrt(dx * dx + dy * dy);
-        if (d < CURSOR) {
-          ctx.strokeStyle = 'rgba(' + rgb + ',' + (0.28 * (1 - d / CURSOR)).toFixed(3) + ')';
-          ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y); ctx.lineTo(a.px + a.ox, a.py + a.oy); ctx.stroke();
+    // stars near the cursor link to it and to each other with faint lines; both fade as hv relaxes
+    var near = [], all2 = field.slice();
+    for (i = 0; i < clusters.length; i++) for (j = 0; j < clusters[i].st.length; j++) all2.push(clusters[i].st[j]);
+    for (i = 0; i < all2.length; i++) if ((all2[i].hv || 0) > 0.03) near.push(all2[i]);
+    near.sort(function (x, y) { return y.hv - x.hv; }); near.length = Math.min(near.length, 24);
+    ctx.lineWidth = 0.6;
+    for (i = 0; i < near.length; i++) {
+      a = near[i];
+      ctx.strokeStyle = 'rgba(' + rgb + ',' + (0.28 * a.hv).toFixed(3) + ')';
+      ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y); ctx.lineTo(a.px + a.ox, a.py + a.oy); ctx.stroke();
+      for (j = i + 1; j < near.length; j++) {
+        b = near[j]; var ex = a.px - b.px, ey = a.py - b.py;
+        if (ex * ex + ey * ey < 12100) {
+          ctx.strokeStyle = 'rgba(' + rgb + ',' + (0.18 * Math.min(a.hv, b.hv)).toFixed(3) + ')';
+          ctx.beginPath(); ctx.moveTo(a.px + a.ox, a.py + a.oy); ctx.lineTo(b.px + b.ox, b.py + b.oy); ctx.stroke();
         }
       }
     }
@@ -237,7 +246,11 @@
     for (i = 0; i < clusters.length; i++) for (j = 0; j < clusters[i].st.length; j++) dot(clusters[i].st[j]);
   }
 
-  function loop(t) { var dt = last ? Math.min(t - last, 50) : 16.67; last = t; draw(dt); raf = requestAnimationFrame(loop); }
+  function loop(t) {             // capped at ~30fps
+    raf = requestAnimationFrame(loop);
+    if (last && t - last < 32) return;
+    var dt = last ? Math.min(t - last, 66) : 33.3; last = t; draw(dt);
+  }
   function start() { if (running || (reduce && reduce.matches) || document.hidden || !visible) return; running = true; last = 0; raf = requestAnimationFrame(loop); }
   function stop() { running = false; cancelAnimationFrame(raf); }
   function sync() { if ((reduce && reduce.matches) || document.hidden || !visible) { stop(); draw(0); } else start(); }
