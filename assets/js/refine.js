@@ -9,7 +9,7 @@
   var f=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit'});
   function tick(){ t.textContent='Los Angeles '+f.format(new Date()); }
   tick(); setInterval(tick,15000);
-  (document.body?Promise.resolve():new Promise(function(r){addEventListener('DOMContentLoaded',r)})).then(function(){if(document.documentElement.scrollHeight>innerHeight+4||document.querySelector('.filter,.title')){var b=document.createElement('div');b.className='la-band';b.setAttribute('aria-hidden','true');document.body.appendChild(b);}document.body.appendChild(el)});
+  (document.body?Promise.resolve():new Promise(function(r){addEventListener('DOMContentLoaded',r)})).then(function(){if(document.documentElement.scrollHeight>innerHeight+4||document.querySelector('.filter,.title')){var b=document.createElement('div');b.className='la-band';b.setAttribute('aria-hidden','true');b.innerHTML='<i></i><i></i><i></i><i></i><i></i>';document.body.appendChild(b);}document.body.appendChild(el)});
 })();
 
 /* Home: soft light that follows the cursor across the headline (fine pointers only). */
