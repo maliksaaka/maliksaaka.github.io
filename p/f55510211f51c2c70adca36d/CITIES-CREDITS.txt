@@ -1,0 +1,1 @@
+cities.json is derived from GeoNames cities15000, admin1CodesASCII and countryInfo (https://www.geonames.org), licensed CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ . Reduced to name, region, country, lat, lon and IANA time zone.
