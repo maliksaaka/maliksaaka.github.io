@@ -83,3 +83,9 @@ html:root{--top:2.75rem}
 .la-clock{top:0;height:var(--top);align-items:center}
 html:root body:has(.filter){--nav:calc(var(--top) + 14px)}
 html{scroll-padding-top:var(--top)}
+/* r4: room for descenders/ascenders (background-clip:text clips glyphs outside line box) */
+.intro h1{padding:.12em .06em .22em!important;margin-bottom:-.22em!important;overflow:visible!important}
+.display{padding:.08em 0 .18em!important;margin-bottom:calc(var(--s4) - .18em)!important;overflow:visible}
+/* r4: Work heading matches the home hero */
+.display.name{font-size:clamp(40px,5.6vw,80px)!important;letter-spacing:-.03em!important;word-spacing:normal!important;background:radial-gradient(circle at 50% 50%,#8a8a8f 0,#2a2a2c 22%,#000 48%);-webkit-background-clip:text;background-clip:text;color:transparent;padding:.12em .06em .22em!important}
+@media (prefers-reduced-motion:reduce){.display.name{background:none;color:#000}}
