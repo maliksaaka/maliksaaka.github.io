@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="googlebot" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Private</title>
+<style>
+@font-face{font-family:"Instrument Serif";src:url("/assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("/assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");font-style:italic;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("/assets/fonts/IBMPlexMono-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("/assets/fonts/IBMPlexMono-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+:root{--bg:#fff;--ink:#000;--muted:#6e6e73;--rule:rgba(0,0,0,.1);--serif:"Instrument Serif","Times New Roman",serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--pad:clamp(16px,4vw,64px);--ease:cubic-bezier(.22,.61,.36,1)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:12px/1.5 var(--mono);-webkit-font-smoothing:antialiased}
+#lock{min-height:100svh;display:grid;place-items:center;padding:var(--pad)}
+#lock form{width:min(360px,100%);animation:in .6s var(--ease) both}
+#lock h1{font:400 clamp(40px,7vw,64px)/1 var(--serif);letter-spacing:-.02em;margin-bottom:24px}
+#lock h1 em{font-style:italic}
+#lock label{display:block;color:var(--muted);font-size:11px;margin-bottom:8px}
+#lock input{width:100%;font:inherit;font-size:14px;border:0;border-bottom:1px solid var(--ink);padding:10px 0;background:none;outline:none;border-radius:0}
+#lock button{margin-top:20px;font:inherit;font-size:11px;background:none;border:0;border-bottom:1px solid var(--rule);padding:6px 0;cursor:pointer;color:var(--ink)}
+#lock button:hover{border-color:var(--ink)}
+#msg{margin-top:14px;min-height:18px;color:var(--muted);font-size:11px}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<main id="lock"><form autocomplete="off">
+<h1>Sign <em>in</em></h1>
+<label for="pw">Password</label>
+<input id="pw" type="password" autocomplete="current-password" autofocus required>
+<button type="submit">Unlock</button>
+<p id="msg" aria-live="polite"></p>
+</form></main>
+<script>
+(()=>{const S="/yBF5gZiGolTfmz3V0TWMg==",V="0YBEbeNgIBqj8+C3",C="jqOVyDdknz8jgQw2yUXYlYJuSxD7CnvjkghsVr1tFz+PYYOdSHkITIfuQh92SyWxOUF+jvXvrhrY/frSKev3wxNiS3sEvdnmU4NTJCC0MKiKtpoTQMjM86DlmlgSM67vtIJMGFouNfAnhKpW1Px788xewXy0rZj9hlfLvHY75wrzrFJzmaazXLoU14qg0QTgtnVOX4lFdsOoACVdXem6djQYpxYZzA69afFc1Xl8/Ve6TtKeAyZp+/iguNtQDf95m6+xYoNd2NWpGvZQucmLahdeIYyHVSdRiWbG6zcd81BTwBP6K6ogYCfC6Omoi2KvNxKEk3D7IUzHk8MqaIe+MM9WjKIdgia14k+B/SVYar3hWzFrQ9rySurWm5RrPmxa9xS+rPurcPNKM8R2w8QiGIT7yhjiwJ+E80qiYU5nA8SE/03L7P/Y9lmQKLfI4Fj9dhgL69wHM+sSxQ+kTky3jGylTAN4h7x7RJYCau+jYiOGFJaDUKKh6uSxd/o/zZbvU+axdpn6T76jSX02/6Ms8Jt2i8btwkBggKc+dc/+uM3F12hVSVNUyzKuzZ8+tQzXPEonwW0ESJWXPQbfdFf22fHBFULSJyjJxkRjU55uDkgb4fF/z01O1WJeZYtWG+EV+gBnTZMyljBmRFeRtGHUplimMs+zUNHrFwZRlAgRoeu7l0zV2eesrHoZrOlFNooO7ypqeS3HEwQ/SCpX16kQ9IBVc0IChvkJRxUcSoGI32C1RRX7RBiug4vNwyeYdOLRfdJREz2FY4km8vQlv4cntTVIxLr0jSqX3oFOvsEuBxMY+CaRSqUhY6xRVmBvU76LjyEX1QfYvdlogZFoxfGOX1rLk/fnWORfTs12yzUAE0fdBwq+ZyWKtAN2cOD5RgU1FiZeN8jW69NMEUtYzz75lF/YiptJgpiu1Lb0LKaEmYp0MvsBLVgpJgvqcjcEvtInvmFItVYgsq5uADK1GwDiQy5Fdn3MbpDyDiUkmA8tkJq3rwjQlo9Jekzu7AXKxWTsoaRVVgijjrf9vk2dJfaUN/Aqqu7lz4J3LTTtOH79q9Y3+Q0r+nwYt+CHtzhbxO9vJT3pM0neA4njVCcfvRGJ3/mc8zHsl7xIbX3zpCPZ7RuKCaGkDw==",IT=600000;
+const u=b=>Uint8Array.from(atob(b),c=>c.charCodeAt(0));
+async function open(pw){const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:u(S),iterations:IT,hash:"SHA-256"},k,{name:"AES-GCM",length:256},false,["decrypt"]);
+const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:u(V)},key,u(C));return await new Response(new Blob([pt]).stream().pipeThrough(new DecompressionStream("gzip"))).text()}
+function mount(html){document.getElementById("lock").remove();const t=document.createElement("div");t.innerHTML=html;
+[...t.childNodes].forEach(n=>document.body.appendChild(n));
+document.querySelectorAll("body script[data-run]").forEach(s=>{const x=document.createElement("script");x.textContent=s.textContent;s.replaceWith(x)})}
+const f=document.querySelector("#lock form"),m=document.getElementById("msg");
+f.addEventListener("submit",async e=>{e.preventDefault();m.textContent="Unlocking";
+try{const pw=document.getElementById("pw").value;const h=await open(pw);try{sessionStorage.setItem("ms_p",pw);sessionStorage.setItem("ms_prog",pw)}catch(_){}mount(h)}catch(_){m.textContent="That password did not work."}});
+let s=null;try{s=sessionStorage.getItem("ms_p")||sessionStorage.getItem("ms_prog")}catch(_){}
+if(s)open(s).then(mount).catch(()=>{try{sessionStorage.removeItem("ms_p");sessionStorage.removeItem("ms_prog")}catch(_){}});
+})();
+</script></body></html>
