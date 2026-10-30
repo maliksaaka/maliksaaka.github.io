@@ -89,3 +89,6 @@ html{scroll-padding-top:var(--top)}
 /* r4: Work heading matches the home hero */
 .display.name{font-size:clamp(40px,5.6vw,80px)!important;letter-spacing:-.03em!important;word-spacing:normal!important;background:radial-gradient(circle at 50% 50%,#8a8a8f 0,#2a2a2c 22%,#000 48%);-webkit-background-clip:text;background-clip:text;color:transparent;padding:.12em .06em .22em!important}
 @media (prefers-reduced-motion:reduce){.display.name{background:none;color:#000}}
+/* v12: homepage headline in the Works title face */
+@font-face{font-family:"Inter Tight";src:url("../fonts/InterTight-ExtraBold.woff2") format("woff2");font-weight:800;font-display:swap}
+.intro h1{font-family:"Inter Tight","Inter",system-ui,sans-serif!important;font-weight:800!important;letter-spacing:-.055em!important;line-height:.9!important}

@@ -93,3 +93,19 @@ footer.next{display:none}
 /* music page: tighter hero, sits closer to nav */
 .hero.hero-tight{min-height:0;padding-top:clamp(56px,7vw,110px)}
 @media (max-width:820px){.hero.hero-tight{min-height:0;padding-top:28px;flex-wrap:nowrap;align-content:normal}.hero.hero-tight .bio{flex:none}}
+/* v11: page content starts exactly one nav-bar height below the nav; no vh heroes */
+:root{--navh:61px}
+@media (max-width:820px){:root{--navh:76px}}
+.hero,.hero.hero-tight,.hero.img{min-height:0!important;padding-top:var(--navh)!important;align-content:normal;overflow:visible}
+@media (max-width:820px){.hero,.hero.hero-tight{flex-wrap:nowrap}.hero .bio{flex:none}}
+.hero.img{margin-top:var(--navh);padding-top:clamp(140px,22vw,320px)!important;overflow:hidden}
+/* ghost text: full line box so descenders (y, g, p) are never clipped */
+.hero .ghost{line-height:1.12!important;bottom:0;padding-bottom:.02em}
+/* v12: gap from title block to first content = the Mugler gap (hero bottom padding) */
+.hero+.sec{padding-top:0}
+/* v13: single-project pages: image left, copy right, top aligned (desktop) */
+.pgrid{display:grid;grid-template-columns:minmax(0,760px) minmax(0,1fr);gap:clamp(24px,3vw,48px);align-items:start}
+.pgrid .two.one{margin:0;max-width:760px}.pgrid .two.one figure{aspect-ratio:3/2}
+.pcopy .meta{padding-top:0;margin-bottom:24px}.pcopy .prose{grid-template-columns:1fr;gap:16px;align-items:start}
+.pcopy .prose h2{font-size:clamp(28px,2.6vw,44px)}
+@media (max-width:820px){.pgrid{grid-template-columns:1fr}.pcopy{margin-top:20px}}
