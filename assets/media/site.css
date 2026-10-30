@@ -1,0 +1,95 @@
+@font-face{font-family:"Inter Tight";src:url("../fonts/InterTight-ExtraBold.woff2") format("woff2");font-weight:800;font-display:swap}
+/* modern site chrome (Romanelli direction). Retro look lives only inside .retro */
+body{padding-bottom:0;font-size:12px;background:#fff}
+.bnav{display:none}
+.snav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:flex-start;padding:18px var(--pad);background:rgba(255,255,255,.94);font:400 11px/1.35 var(--mono)}
+.snav .mk{text-decoration:none;font-weight:500;line-height:1.15}
+.snav ul{display:flex;gap:1.4rem;list-style:none}.snav a{text-decoration:none}
+.snav a[aria-current]{text-decoration:underline;text-underline-offset:4px}
+.hero{position:relative;min-height:62vh;display:flex;align-items:flex-end;gap:var(--pad);padding:0 var(--pad) clamp(20px,3vw,44px);overflow:hidden}
+.hero h1{position:relative;font:400 clamp(72px,14vw,232px)/.8 var(--serif);letter-spacing:-.035em;margin:0}
+.hero h1 i{font-style:italic}
+.hero .bio{position:relative;max-width:34ch;font:400 12px/1.55 var(--mono);padding-bottom:.6em}
+.hero .bio span{display:block;color:var(--mut)}
+.hero.img{min-height:86vh;color:#fff}
+.hero.img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero.img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0) 55%)}
+.hero.img h1,.hero.img .bio{z-index:1}.hero.img .bio span{color:rgba(255,255,255,.75)}
+.ghost{position:absolute;left:var(--pad);bottom:.04em;font:400 clamp(56px,16vw,300px)/.9 var(--serif);letter-spacing:-.04em;color:rgba(0,0,0,.05);white-space:nowrap;pointer-events:none}
+.sec{padding:clamp(48px,7vw,120px) var(--pad) 0}
+.lab{display:flex;justify-content:space-between;border-top:1px solid #000;padding-top:10px;margin-bottom:clamp(20px,3vw,40px);font:400 11px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.lab .mut{text-transform:none;letter-spacing:0}
+.prose{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad);align-items:end}
+.prose h2{font:400 clamp(40px,5vw,80px)/.95 var(--serif);letter-spacing:-.02em}
+.prose p{max-width:52ch;font:400 13px/1.65 var(--mono)}
+.prose p+p{margin-top:1em}
+.links{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem}
+.links a{display:inline-block;border:1px solid #000;border-radius:999px;padding:.35rem .9rem;text-decoration:none;font-size:11px}
+.links a:hover{background:#000;color:#fff}
+/* two-up edge-to-edge photos */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:0 calc(var(--pad)*-1)}
+.two figure{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;background:#eee}
+.two img{width:100%;height:100%;object-fit:cover;display:block}
+.two figcaption{position:absolute;left:12px;bottom:10px;color:#fff;font-size:11px;text-shadow:0 0 8px rgba(0,0,0,.6)}
+.meta{display:flex;justify-content:space-between;align-items:flex-end;padding:16px 0 0;font-size:11px}
+.meta b{font-weight:500}.meta a{text-decoration:none}.meta a:hover{text-decoration:underline}
+/* project rows */
+.pj{display:block;text-decoration:none;margin-bottom:clamp(56px,7vw,112px)}
+.pj .two figure{aspect-ratio:3/2}
+.pj .ph{display:flex;align-items:flex-end;padding:14px;font:400 clamp(40px,5vw,80px)/.9 var(--serif);background:#000;color:#fff;height:100%}
+.pj .ph.l{background:#f2f2f2;color:#000}
+.pj h2{font:400 clamp(44px,6vw,96px)/.9 var(--serif);letter-spacing:-.02em;margin-top:18px}
+.pj .meta{padding-top:10px}.pj .meta p{max-width:56ch;color:var(--mut)}
+.pj:hover h2{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:8px}
+.idx{list-style:none;columns:3;font-size:11px;margin-top:8px}.idx a{text-decoration:none}
+.next{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid #000;margin:clamp(64px,8vw,140px) var(--pad) 0;padding:14px 0 28px;font-size:11px}
+.next a{text-decoration:none;font:400 clamp(32px,4vw,56px)/1 var(--serif)}
+.next a:hover{text-decoration:underline}
+/* ---------- retro module (MySpace 2008), players only ---------- */
+.retro{--r:#000;--rb:#d9d9d9;font:11px/1.45 Verdana,Tahoma,Geneva,sans-serif;border:2px solid #000;background:#f4f4f4;padding:10px;box-shadow:4px 4px 0 #000}
+.retro .cols{grid-template-columns:300px 1fr;gap:10px}
+.retro .box{border:1px solid #000;background:#fff}
+.retro .box>.h{background:linear-gradient(#5a5a5a,#111);color:#fff;font:bold 11px/1.5 Verdana,Tahoma,sans-serif;letter-spacing:0;text-transform:none;padding:.2rem .5rem;border-bottom:1px solid #000}
+.retro .sc{font:bold 10px/1.5 Verdana,Tahoma,sans-serif;letter-spacing:0;text-transform:none}
+.retro .proj>.h h2{font:bold 11px/1.5 Verdana,Tahoma,sans-serif;letter-spacing:0;text-transform:none}
+.retro .pl{background:linear-gradient(#3a3a3a,#0c0c0c);color:#fff}
+.retro .pl .np{margin:8px;background:#000;border:1px inset #777;padding:.5rem}
+.retro .pl .np b{font:bold 13px/1.3 Verdana,Tahoma,sans-serif}
+.retro .pl .np small{color:#bbb}
+.retro .pl .ctl{border-top:0;padding:0 8px 8px}
+.retro .pl .ctl button{border:1px solid #000;background:linear-gradient(#fafafa,#bdbdbd);color:#000;border-radius:3px;width:28px;height:22px}
+.retro .pl .ctl button:hover{background:linear-gradient(#fff,#e0e0e0);color:#000}
+.retro .pl .bar{border:1px inset #888;background:#222;height:9px}
+.retro .pl .bar i{background:linear-gradient(#fff,#aaa)}
+.retro .pl .tm{color:#ddd;font-size:10px}
+.retro .lede b{font:bold 13px/1.3 Verdana,Tahoma,sans-serif}
+.retro .list li{border-top:1px dotted #bbb;padding:.28rem .5rem}
+.retro .list li:nth-child(even){background:#f0f0f0}
+.retro .list li[data-play]:hover,.retro .list li.on{background:#000;color:#fff}
+.retro .list .mt,.retro .list .ix{color:#777}
+.retro .list.scroll{scrollbar-color:#000 #ddd}
+.retro .mut{color:#666}
+.retro p{padding:.5rem}
+@media (max-width:820px){
+ .snav ul{gap:.8rem;flex-wrap:wrap;justify-content:flex-end;max-width:62%}
+ .hero{flex-direction:column;align-items:flex-start;min-height:52vh}
+ .hero.img{min-height:70vh}
+ .prose{grid-template-columns:1fr}
+ .retro .cols{grid-template-columns:1fr}.retro{padding:6px;box-shadow:3px 3px 0 #000}
+ .idx{columns:2}
+}
+@media (max-width:520px){.two{grid-template-columns:1fr}.two figure{aspect-ratio:4/5}.pj .two figure{aspect-ratio:3/2}.pj .two figure+figure{display:none}.snav{font-size:10px}}
+.hero{flex-wrap:wrap;align-content:flex-end}.hero .bio{flex:0 1 34ch}
+.lab{gap:1rem}
+@media (max-width:820px){.ghost{display:none}.lab{flex-direction:column;gap:.2rem}}
+.two.one{grid-template-columns:1fr}.two.one figure{aspect-ratio:16/9}.pj .two.one figure{aspect-ratio:21/9}
+@media (max-width:520px){.two.one figure,.pj .two.one figure{aspect-ratio:4/3}}
+
+/* blocky titles */
+.hero h1,.wtitle,.hero .ghost{font-family:"Inter Tight","Inter",system-ui,sans-serif!important;font-weight:800!important;letter-spacing:-.055em!important;text-transform:lowercase;line-height:.82!important}
+.hero h1 i{font-style:normal}.hero .ghost{text-transform:lowercase}
+.hero h1{font-size:clamp(64px,12.5vw,210px)}
+footer.next{display:none}
+/* music page: tighter hero, sits closer to nav */
+.hero.hero-tight{min-height:0;padding-top:clamp(56px,7vw,110px)}
+@media (max-width:820px){.hero.hero-tight{min-height:0;padding-top:28px;flex-wrap:nowrap;align-content:normal}.hero.hero-tight .bio{flex:none}}
