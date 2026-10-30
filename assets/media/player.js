@@ -14,7 +14,7 @@ function scEnsure(url,cb){if(scw){scReady?cb():(scQ=cb);return}
   scw.bind(E.READY,()=>{scReady=true;if(scQ){const g=scQ;scQ=null;g()}});
   scw.bind(E.PLAY,()=>{if(P.kind!=='sc')return scw.pause();au.pause();P.playing=true;st('playing');ui()});
   scw.bind(E.PAUSE,()=>{if(P.kind==='sc'){P.playing=false;st('paused');ui()}});
-  scw.bind(E.FINISH,()=>{if(P.kind==='sc'){P.playing=false;st('ended');ui()}});
+  scw.bind(E.FINISH,()=>{if(P.kind==='sc'){P.playing=false;st('ended');ui();if(window.PLAYER_AUTO&&P.i<Q.length-1)step(1)}});
   scw.bind(E.PLAY_PROGRESS,e=>{if(P.kind!=='sc')return;P.t=e.currentPosition/1000;if(!P.d)scw.getDuration(x=>P.d=x/1000);ui()})};
  s.onerror=()=>st('audio did not load');document.head.appendChild(s);scQ=cb}
 function play(i){const it=Q[i];if(!it)return;if(P.key===it.key){toggle();return}
@@ -25,7 +25,7 @@ function toggle(){if(P.i<0)return play(0);if(P.kind==='sc'){scw&&(P.playing?scw.
 function step(d){if(Q.length)play((P.i+d+Q.length)%Q.length)}
 au.ontimeupdate=()=>{if(P.kind!=='mp3')return;P.t=au.currentTime;P.d=au.duration||P.d;ui()};
 au.onplay=()=>{if(P.kind!=='mp3')return au.pause();P.playing=true;st('playing');ui()};
-au.onpause=()=>{if(P.kind==='mp3'){P.playing=false;st('paused');ui()}};au.onended=()=>{P.playing=false;st('ended');ui()};au.onerror=()=>P.kind==='mp3'&&st('audio did not load');
+au.onpause=()=>{if(P.kind==='mp3'){P.playing=false;st('paused');ui()}};au.onended=()=>{P.playing=false;st('ended');ui();if(window.PLAYER_AUTO&&P.i<Q.length-1)step(1)};au.onerror=()=>P.kind==='mp3'&&st('audio did not load');
 window.PLAYER={set(q){Q=q},play,toggle,step,state:P};
 document.addEventListener('DOMContentLoaded',()=>{$('#pp').onclick=toggle;$('#pv').onclick=()=>step(-1);$('#nx').onclick=()=>step(1);
  $('#bar').onclick=e=>{const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width;if(!P.d)return;P.kind==='sc'?scw.seekTo(x*P.d*1000):(au.currentTime=x*P.d)};
