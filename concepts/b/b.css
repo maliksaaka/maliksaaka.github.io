@@ -1,0 +1,26 @@
+:root{--navbg:#E8FF00}
+html,body{background:#E8FF00}
+body{display:flex;flex-direction:column;min-height:100dvh}
+#app{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.nowb{background:#E8FF00;color:#000;padding:var(--pad);display:flex;flex-direction:column;gap:14px;min-height:0;border-top:1px solid #000}
+.nowb .top{display:flex;justify-content:space-between;text-transform:uppercase;font-size:11px;font-weight:500}
+.nowb .bio{font-size:12px;max-width:44ch}
+.nowb .fit{flex:1;min-height:0;overflow:hidden}
+.nowb h1{font:800 150px/.86 var(--ti);letter-spacing:-.055em;overflow-wrap:anywhere}
+.nowb .meta{display:flex;gap:20px;flex-wrap:wrap;font-size:12px}
+.tr{display:flex;align-items:stretch}
+.tr .tb{width:72px;height:72px;flex:none;background:#000;color:#E8FF00}
+.tr .tb+.tb{margin-left:4px}
+.tr .pp{width:112px}
+.seekwrap{flex:1;min-width:0;margin-left:16px;display:flex;flex-direction:column;justify-content:space-between}
+.nowb .seek{--sh:24px;--track:transparent;--fillc:#000;border:2px solid #000}
+.bands{overflow-y:auto;border-top:1px solid #000;border-left:1px solid #000;min-height:0}
+.band{display:grid;grid-template-columns:5ch minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px var(--pad);background:var(--bg);color:var(--fg);border-bottom:1px solid #000;font-size:13px;cursor:pointer}
+.band .bn{opacity:.7}
+.band:hover{background:#000;color:#E8FF00}
+.band.on{background:#000;color:#E8FF00;outline:0;border-left:12px solid #E8FF00;padding-left:calc(var(--pad) - 12px)}
+.band.on .bn{font-size:0}.band.on .bn::before{content:"\2192";font-size:13px}
+.band.on:focus-visible,.band:focus-visible{outline:3px solid #E8FF00;outline-offset:-5px;background:#000;color:#E8FF00}
+@media(min-width:901px){body{height:100dvh}.bands{height:100%}}
+@media(max-width:900px){#app{display:block}.nowb{height:470px}.nowb .bio{display:none}.bands{overflow:visible}}
+@media(max-width:640px){.tr .tb{width:56px;height:56px}.tr .pp{width:80px}.band{padding:12px var(--pad);gap:10px;grid-template-columns:4ch minmax(0,1fr) auto;font-size:12px}}

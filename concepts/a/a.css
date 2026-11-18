@@ -1,0 +1,24 @@
+.ahead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:4px var(--pad) 14px}
+.ahead h1{font:800 clamp(64px,10vw,150px)/.8 var(--ti);letter-spacing:-.055em}
+.ahead p{max-width:34ch;font-size:12px}.ahead p span{display:block;margin-top:4px}
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);border-top:1px solid #000;border-left:1px solid #000}
+.tile{aspect-ratio:1;background:var(--bg);color:var(--fg);border-right:1px solid #000;border-bottom:1px solid #000;min-width:0}
+.tin{height:100%;padding:8px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;font-size:10px;line-height:1.25;overflow:hidden}
+.tin b{font:500 10px/1.25 var(--mono);display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.tn,.td{opacity:.75}
+.tin:hover,.tin:focus-visible{background:#000;color:#fff;outline-offset:-3px}
+.tin.on{background:#000;color:var(--y)}.tin.on::before{content:"\2192  NOW";font-size:10px}
+.tin.on .tn{display:none}
+.now{grid-column:1/span 6;grid-row:1/span 4;order:-1;background:var(--bg);color:var(--fg);border-right:1px solid #000;border-bottom:1px solid #000;padding:var(--pad);display:flex;flex-direction:column;gap:12px;min-width:0}
+.now .top{display:flex;justify-content:space-between;text-transform:uppercase;font-size:11px}
+.now .fit{flex:1;min-height:0;overflow:hidden}
+.now h2{font:800 120px/.88 var(--ti);letter-spacing:-.05em;overflow-wrap:anywhere}
+.now .meta{display:flex;gap:18px;font-size:12px}
+.tr{display:flex;gap:0;align-items:stretch}
+.tr .tb{width:64px;height:64px;flex:none;background:var(--fg);color:var(--bg)}
+.tr .tb+.tb{margin-left:4px}
+.seekwrap{flex:1;min-width:0;margin-left:14px;display:flex;flex-direction:column;justify-content:space-between}
+.now .seek{--sh:22px;--track:rgba(0,0,0,.18);--fillc:var(--fg);border:1px solid var(--fg);background:transparent}
+.now.c1 .seek{--track:transparent}
+@media(max-width:1000px){.mosaic{grid-template-columns:repeat(8,1fr)}.now{grid-column:1/-1;grid-row:auto;height:440px}}
+@media(max-width:640px){.mosaic{grid-template-columns:repeat(3,1fr)}.ahead{flex-direction:column;align-items:flex-start;gap:10px}.now{height:440px}.tr .tb{width:56px;height:56px}.tin{padding:6px}}
