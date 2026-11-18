@@ -84,7 +84,7 @@ window.CP={
  chrome(c,page){
   const other=page==='music'?'podcast':'music',L=x=>x.toUpperCase();
   document.getElementById('chrome').innerHTML=
-  `<div class="mock"><span>Mockup</span><span class="sw" aria-label="Concepts">${['a','b','c'].map(x=>`<a href="../${x}/${page}.html"${x===c?' aria-current="page"':''}>${L(x)}</a>`).join(' ')}</span><a href="../index.html">All concepts</a><a class="live" href="../../${page}/">Live site ${page} &rarr;</a></div>`+
+  `<div class="mock"><span>Mockup</span><span class="sw" aria-label="Concepts">${['a','b','c','c2'].map(x=>`<a href="../${x}/${page}.html"${x===c?' aria-current="page"':''}>${L(x)}</a>`).join(' ')}</span><a href="../index.html">All concepts</a><a class="live" href="../../${page}/">Live site ${page} &rarr;</a></div>`+
   `<header class="cnav"><a class="mk" href="../../index.html">Malik<br>Saaka</a><nav aria-label="Site"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../projects/">Work</a></li><li><a href="music.html"${page==='music'?' aria-current="page"':''}>Music</a></li><li><a href="podcast.html"${page==='podcast'?' aria-current="page"':''}>Podcast</a></li><li><a href="../../contact/">Contact</a></li></ul></nav></header>`}
 };
 })();
