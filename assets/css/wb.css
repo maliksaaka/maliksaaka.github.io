@@ -1,0 +1,26 @@
+/* The Wealth Break page: brand by Ruhie (Figma, Proj 2: Final WealthBreak Podcast Branded Assets) */
+body:has(.cs.wb){background:#E9E9E9}
+body:has(.cs.wb) .snav{background:rgba(233,233,233,.94)}
+.cs.wb{--ink:#000;--acc:#2C30F8;--mut:#4a4a4f;--hair:rgba(0,0,0,.18);--line:#000}
+.cs.wb .back{color:var(--acc)}
+.wbh{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr) minmax(0,1fr);align-items:end;gap:clamp(8px,2vw,32px);margin-top:clamp(24px,4vw,56px);padding:clamp(56px,7vw,110px) clamp(12px,3vw,48px) 0;background:#E9E9E9;border-bottom:1px solid #000;overflow:hidden}
+.wbh .wbm{position:absolute;top:clamp(12px,2vw,28px);left:clamp(12px,3vw,48px);width:clamp(64px,7vw,104px);height:auto}
+.wbh .cut{width:100%;height:auto;display:block;filter:grayscale(1) contrast(1.05)}
+.wbh .cut.l{transform:scaleX(-1)}
+.wbh .wbt{position:relative;text-align:center;align-self:center;padding:clamp(24px,4vw,64px) 0}
+.wbh h1{position:relative;z-index:1;margin:0;font:400 clamp(44px,8.4vw,136px)/.95 var(--serif);letter-spacing:-.02em;color:#000;text-transform:none}
+.wbh .wbt p{position:relative;z-index:1;margin:clamp(10px,1.4vw,20px) 0 0;font:400 clamp(13px,1.2vw,17px)/1.3 "Inter",system-ui,sans-serif;color:#1E1E1E}
+.wbh .ring{position:absolute;inset:-6% -4%;width:108%;height:112%;object-fit:fill;pointer-events:none}
+.wbh .dd{position:absolute;height:auto;pointer-events:none}
+.wbh .zz{width:clamp(70px,9vw,140px);left:2%;bottom:clamp(8px,1.5vw,20px);transform:rotate(-8deg)}
+.wbh .st{width:clamp(60px,7vw,110px);right:20%;top:clamp(18px,3vw,44px);transform:rotate(10deg)}
+.wbh .th{width:clamp(28px,3vw,48px);right:3%;top:clamp(18px,3vw,44px)}
+.cs.wb .sum{color:#000}
+.cs.wb .lab,.cs.wb .strip dt,.cs.wb .rs dt,.cs.wb .lst .k{color:var(--acc)}
+.cs.wb .rs dd{font-family:"Inter",system-ui,sans-serif;font-weight:500;letter-spacing:-.04em;color:var(--acc)}
+.cs.wb .rs div{border-top-color:var(--acc)}
+.cs.wb .did h3{color:var(--acc)}
+.cs.wb .f{border-radius:14px;overflow:hidden}
+.cs.wb .lst a,.cs.wb .out a{color:var(--acc)}
+.cs.wb .nx b{font:400 clamp(56px,10vw,160px)/.9 var(--serif);letter-spacing:-.02em}
+@media (max-width:640px){.wbh{grid-template-columns:1fr 1fr;padding-top:64px}.wbh .wbt{grid-column:1/-1;grid-row:1;padding:20px 8px 28px}.wbh .cut{max-height:220px;object-fit:contain}.wbh .st{right:6%;top:14px}.wbh .zz{display:none}}
