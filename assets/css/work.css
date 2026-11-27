@@ -2,44 +2,40 @@
 .wk{--ink:#0b0b0b;--mut:#6e6e73;--hair:rgba(0,0,0,.16);padding:0 var(--pad);color:var(--ink)}
 .wk *{box-sizing:border-box}
 .wk a{color:inherit;text-decoration:none}
-.wk .t{font:800 clamp(120px,25vw,400px)/.8 "Inter Tight","Inter",system-ui,sans-serif;letter-spacing:-.06em;margin:clamp(28px,6vw,96px) 0 0;padding-right:.06em;text-transform:lowercase;color:var(--ink)}
-.wk .intro{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:clamp(36px,6vw,96px)}
-.wk .lead{font:400 clamp(30px,3.7vw,58px)/1.02 var(--serif);letter-spacing:-.012em;max-width:17em;margin:0}
-.wk .note{font:400 10.5px/1.6 var(--mono);color:var(--mut);max-width:30em;margin:0;text-align:right;flex:none;width:min(30em,34vw)}
-.wk .vt{display:flex;gap:1.1em;margin-top:clamp(40px,5vw,72px);font:400 11px/1 var(--mono)}
+.wk .hd{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin:clamp(12px,1.6vw,22px) 0 0;padding-bottom:10px}
+.wk .t{font:800 clamp(60px,6.6vw,92px)/.8 "Inter Tight","Inter",system-ui,sans-serif;letter-spacing:-.06em;margin:0;padding-right:.06em;text-transform:lowercase;color:var(--ink)}
+.wk .vt{display:flex;gap:1.1em;margin:0 0 6px;font:400 11px/1 var(--mono)}
 .wk .vt button{all:unset;cursor:pointer;color:var(--mut);padding-bottom:4px;border-bottom:1px solid transparent}
 .wk .vt button[aria-pressed=true]{color:var(--ink);border-color:var(--ink)}
 .wk .vt button:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
-.wk .rows{margin:18px 0 0;padding:0;list-style:none;border-bottom:1px solid var(--hair)}
+.wk .rows{margin:0;padding:0;list-style:none;border-bottom:1px solid var(--hair)}
 .wk .rows li{border-top:1px solid var(--hair)}
-.wk .row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,2.6fr) minmax(0,4fr) minmax(0,3fr) 24px;gap:24px;align-items:baseline;padding:clamp(18px,2vw,28px) 0;transition:padding .35s cubic-bezier(.22,.61,.36,1)}
+.wk .row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,3.2fr) minmax(0,6fr) 24px;gap:24px;align-items:center;padding:clamp(6px,.62vw,9px) 0;transition:padding .35s cubic-bezier(.22,.61,.36,1)}
 .wk .row .y{font:400 11px/1.4 var(--mono);color:var(--mut)}
-.wk .row .n{font:800 clamp(28px,3.4vw,54px)/.95 "Inter Tight","Inter",system-ui,sans-serif;letter-spacing:-.05em;text-transform:lowercase}
-.wk .row .s{font:400 clamp(20px,1.7vw,26px)/1.15 var(--serif)}
-.wk .row .m{font:400 11px/1.4 var(--mono);color:var(--mut)}
+.wk .row .n{font:800 clamp(24px,2.5vw,32px)/1 "Inter Tight","Inter",system-ui,sans-serif;letter-spacing:-.05em;text-transform:lowercase}
+.wk .row .s{font:400 clamp(18px,1.5vw,22px)/1.15 var(--serif)}
 .wk .row .a{font:400 14px/1 var(--mono);text-align:right;opacity:.5;transition:opacity .3s,transform .3s}
 .wk .row:hover,.wk .row:focus-visible{padding-left:10px}
 .wk .row:hover .a,.wk .row:focus-visible .a{opacity:1;transform:translate(2px,-2px)}
 .wk .row:focus-visible{outline:1px solid var(--ink);outline-offset:-1px}
-.wk .grid{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,40px) clamp(10px,1.2vw,20px);margin-top:18px}
+.wk .grid{display:none;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px 12px;margin-top:2px}
 .wk[data-v=grid] .grid{display:grid}.wk[data-v=grid] .rows{display:none}
 .wk .tile{display:block}
 .wk .tile figure{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;background:#e9e9e9}
 .wk .tile img{position:static;display:block;width:100%;height:100%;min-height:0;object-fit:cover;filter:none;opacity:1;border:0;margin:0;aspect-ratio:auto;transition:transform .7s cubic-bezier(.22,.61,.36,1)}
 .wk .tile:hover img,.wk .tile:focus-visible img{transform:scale(1.03)}
 .wk .tile:focus-visible{outline:1px solid var(--ink);outline-offset:4px}
-.wk .tile b{display:block;margin-top:12px;font:800 clamp(20px,1.8vw,28px)/1 "Inter Tight","Inter",system-ui,sans-serif;letter-spacing:-.045em;text-transform:lowercase}
-.wk .tile span{display:block;margin-top:6px;font:400 11px/1.4 var(--mono);color:var(--mut)}
-.wk .ft{display:grid;grid-template-columns:minmax(0,6fr) repeat(3,minmax(0,2fr));gap:24px;margin-top:clamp(64px,9vw,140px);padding:16px 0 32px;border-top:1px solid var(--hair);font:400 11px/1.5 var(--mono)}
-.wk .ft p{margin:0}.wk .ft .l{font:400 clamp(20px,1.6vw,24px)/1.15 var(--serif);max-width:20em}
+.wk .tile b{display:block;margin-top:8px;font:800 clamp(15px,1.35vw,19px)/1 "Inter Tight","Inter",system-ui,sans-serif;letter-spacing:-.045em;text-transform:lowercase}
+.wk .ft{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-top:clamp(14px,2vw,22px);padding:12px 0 18px;border-top:1px solid var(--hair);font:400 11px/1.5 var(--mono)}
+.wk .ft p{margin:0}.wk .ft .l{font:400 clamp(16px,1.3vw,19px)/1.15 var(--serif);margin-right:auto}
 .wk .ft a:hover{text-decoration:underline}
+@media (max-width:1100px){.wk .grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:900px){
- .wk .intro{flex-direction:column;align-items:flex-start;gap:20px}.wk .note{text-align:left;width:auto;max-width:34em}
- .wk .row{grid-template-columns:minmax(0,1fr) 24px;gap:6px 16px}
- .wk .row .y{grid-column:1/-1}.wk .row .n{grid-column:1}.wk .row .a{grid-column:2;grid-row:2;align-self:center}
- .wk .row .s{grid-column:1/-1}.wk .row .m{grid-column:1/-1}
- .wk .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .wk .ft{grid-template-columns:1fr 1fr}.wk .ft .l{grid-column:1/-1}
+ .wk .row{grid-template-columns:minmax(0,1fr) 24px;gap:4px 16px;padding:14px 0}
+ .wk .row .n{grid-column:1;font-size:30px}.wk .row .y{grid-column:1/-1}.wk .row .a{grid-column:2;grid-row:2;align-self:center}
+ .wk .row .s{grid-column:1/-1}
+ .wk .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .wk .ft{flex-wrap:wrap}.wk .ft .l{flex:1 0 100%}
 }
-@media (max-width:520px){.wk .t{font-size:clamp(96px,34vw,170px)}.wk .lead{font-size:29px}}
+@media (max-width:520px){.wk .t{font-size:clamp(64px,22vw,96px)}.wk .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}.wk .tile b{font-size:17px}}
 @media (prefers-reduced-motion:reduce){.wk .row,.wk .row .a,.wk .tile img{transition:none}.wk .tile:hover img{transform:none}}
