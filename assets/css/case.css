@@ -164,9 +164,9 @@
 .cs .mg{gap:16px 12px}
 .cs .mg.c1{grid-template-columns:minmax(0,640px)}
 .cs .mg.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.cs .mg.c5{grid-template-columns:repeat(5,minmax(0,1fr));max-width:1100px}
+.cs .mg.c5{grid-template-columns:repeat(5,minmax(0,1fr))}
 .cs .mg.c2{max-width:1100px}
-.cs .mg.soc3{grid-template-columns:repeat(3,minmax(0,280px));justify-content:start;align-items:start}
+.cs .mg.soc3{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
 .cs .mg.blog3{grid-template-columns:minmax(0,2.2fr) minmax(0,.62fr) minmax(0,1.5fr);align-items:start;max-width:1100px}
 .cs .mg.blog3 .mf.ph9{max-width:none}
 .cs .lk b{font-size:clamp(22px,2.2vw,32px)}
@@ -218,10 +218,21 @@
 .cs .tr .rs{grid-template-columns:1fr 1fr}
 .cs .band.susa{padding:clamp(34px,4.4vw,56px) 16px}
 .cs .band.susa img{width:min(640px,78%);max-width:none}
-.cs .mg.c5{max-width:948px}
-.cs .mg.soc3{grid-template-columns:repeat(2,minmax(0,280px)) minmax(0,218px)}
 .cs .gal{max-width:1076px}
 .cs .sl img.fit{object-fit:contain;background:#f4f4f5}
 @media (max-width:900px){.cs .tr{grid-template-columns:1fr}}
 @media (max-width:820px){.cs .mg.soc3{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cs .cd button{width:18px}.cs .cd button::after{left:5px}
+
+/* Social row: full width on desktop, swipe strip on tablet and phone */
+.cs .mb{min-width:0;max-width:100%}
+.cs .mg.swipe{display:grid;gap:12px;max-width:none;justify-content:stretch}
+.cs .mg.swipe.n6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.cs .mg.swipe.n3{grid-template-columns:repeat(3,minmax(0,216px));justify-content:start;align-items:start}
+@media (max-width:900px){
+  .cs .mg.swipe{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x}
+  .cs .mg.swipe::-webkit-scrollbar{display:none}
+  .cs .mg.swipe.n6>.mf,.cs .mg.swipe.n6>.soc{flex:0 0 220px;max-width:220px;scroll-snap-align:start;min-width:0}
+  .cs .mg.swipe.n3>.mf,.cs .mg.swipe.n3>.soc{flex:0 0 216px;max-width:216px;scroll-snap-align:start;min-width:0}
+}
+@media (prefers-reduced-motion:reduce){.cs .mg.swipe{scroll-behavior:auto}}
