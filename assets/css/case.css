@@ -301,7 +301,11 @@
 
 /* r10: WB people cards, small and even, about video-tile scale */
 .cs .pcs{grid-template-columns:repeat(5,minmax(0,148px));justify-content:start;max-width:none}
-@media (max-width:900px){.cs .pcs .pc{flex:0 0 132px}}
+@media (max-width:900px){
+.cs .pcs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));justify-content:start;gap:10px;overflow:visible;scroll-snap-type:none}
+.cs .pcs .pc{flex:none;width:auto}
+.cs .pc .mc,.cs .pc figcaption{overflow-wrap:anywhere;text-wrap:balance;max-width:100%}
+}
 
 /* r10: thin banners, logo about half size, centred */
 .cs .band,.cs .band.susa,.cs .band.logo{height:clamp(52px,6.2vw,80px)}
